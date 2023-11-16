@@ -79,6 +79,11 @@ input, select, textarea {
 	margin-right: auto;
 	width: 50%;
   }
+
+ p {
+	color: rgb(238, 238, 238);
+ }
+
 /* Basic */
 
 	html {
@@ -141,7 +146,7 @@ input, select, textarea {
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #555;
+		color: #ffffff;
 		line-height: 1em;
 		margin: 0 0 1em 0;
 	}
@@ -2826,7 +2831,7 @@ input, select, textarea {
 	}
 
 		.main.style1 {
-			background: #fff;
+			background: #272727;
 		}
 
 		.main.style2 {
