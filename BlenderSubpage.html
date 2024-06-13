@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<!--
+	Photon by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>David Goff Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		
+
+        <section id="two" class="main style2">
+            <div class="container">
+                    <h1>Donuts</h1>
+                <div class="row gtr-150">
+                    <div class="col-6 col-12-medium">
+                        <span class="image fit"><img src="../images/Blender Pics/Donut.PNG" id="BlendImage" alt="" /></span>
+                    </div>
+                    <div class="col-6 col-12-medium">
+                        <p>
+							Adipiscing a commodo ante nunc accumsan interdum mi ante adipiscing. A nunc lobortis non nisl amet vis volutpat aclacus nascetur ac non. Lorem curae eu ante amet sapien in tempus ac. Adipiscing id accumsan adipiscing ipsum.<br><br>
+							Blandit faucibus proin. Ac aliquam integer adipiscing enim non praesent vis commodo nunc phasellus cubilia ac risus accumsan. Accumsan blandit. Lobortis phasellus non lobortis dit varius mi varius accumsan lobortis. Blandit ante aliquam lacinia lorem lobortis semper morbi col faucibus vitae integer placerat accumsan orci eu mi odio tempus adipiscing adipiscing adipiscing curae consequat feugiat etiam dolore.<br><br>
+							Adipiscing a commodo ante nunc accumsan interdum mi ante adipiscing. A nunc lobortis non nisl amet vis volutpat aclacus nascetur ac non. Lorem curae eu ante amet sapien in tempus ac. Adipiscing id accumsan adipiscing ipsum.
+						</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+		<script>
+			// Function to get query string parameters
+			function getQueryParams() {
+			  const params = {};
+			  const queryString = window.location.search.substring(1);
+			  const pairs = queryString.split("&");
+		
+			  for (const pair of pairs) {
+				const [key, value] = pair.split("=");
+				if (key) {
+				  params[decodeURIComponent(key)] = decodeURIComponent(value || "");
+				}
+			  }
+			  return params;
+			}
+		
+			// Grab the query parameters
+			const queryParams = getQueryParams();
+			console.log(queryParams); // Logs the query parameters to the console
+		
+			// Example usage: change the paragraph text if there's a "text" query parameter
+			if (queryParams.text) {
+			  document.getElementById("text").innerText = queryParams.text;
+			}
+		
+			// Example usage: change the image source if there's an "BlendImage" query parameter
+			if (queryParams.BlendImage) {
+			  const imagePath = `../images/Blender Pics/${queryParams.BlendImage}.png`;
+			  document.getElementById("BlendImage").src = imagePath;
+			}
+		</script>
+
+
+		<!-- Footer -->
+			<section id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</section>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
