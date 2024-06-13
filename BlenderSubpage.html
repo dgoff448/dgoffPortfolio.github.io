@@ -17,7 +17,7 @@
 
         <section id="two" class="main style2">
             <div class="container">
-                    <h1>Donuts</h1>
+                    <h1  id=Title>Donuts</h1>
                 <div class="row gtr-150">
                     <div class="col-6 col-12-medium">
                         <span class="image fit"><img src="../images/Blender Pics/Donut.PNG" id="BlendImage" alt="" /></span>
@@ -62,6 +62,7 @@
 			if (queryParams.BlendImage) {
 			  const imagePath = `../images/Blender Pics/${queryParams.BlendImage}.png`;
 			  document.getElementById("BlendImage").src = imagePath;
+			  document.getElementById("Title").innerHTML = queryParams.BlendImage;
 			}
 		</script>
 
