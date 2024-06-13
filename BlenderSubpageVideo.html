@@ -9,8 +9,8 @@
 		<title>David Goff Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
-		<link rel="stylesheet" href="../assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
 		
@@ -22,7 +22,7 @@
                     <div class="col-6 col-12-medium">
                         <span class="image fit">
 							<video width="324" height="576" controls autoplay loop id="BlendVideo">
-								<source src="../images/Blender Pics/" type="video/mp4">
+								<source src="images/Blender Pics/" type="video/mp4">
 							</video>
 						</span>
                     </div>
@@ -64,7 +64,7 @@
 		
 			// Example usage: change the image source if there's an "BlendImage" query parameter
 			if (queryParams.BlendVideo) {
-				const videoPath = `../images/Blender Pics/${queryParams.BlendVideo}.mp4`;
+				const videoPath = `images/Blender Pics/${queryParams.BlendVideo}.mp4`;
 				const videoElement = document.getElementById("BlendVideo");
 				const sourceElement = videoElement.querySelector("source");
 				
