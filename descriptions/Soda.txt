@@ -1,0 +1,3 @@
+Blender Tutorial #5: I learned how to work with transparent and translucent objects. I also applied what I learned from the gumdrop tutorial to make the drink appear carbonated.
+
+April 21, 2024

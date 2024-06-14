@@ -1,0 +1,3 @@
+Blender Tutorial #14: Today I learned about animated particles and affecting their physics with turbulence. This was a fun and quite simple tutorial.
+
+May 15, 2024

@@ -1,0 +1,3 @@
+Blender Project #4: I made the Shield Pot from Fortnite: Battle Royale. This was a quicker project to work on but still really fun! I got to use displacement mapping, glass textures, and even some pipe-curve work with the latch for the pot.
+
+May 29, 2024

@@ -1,0 +1,3 @@
+Blender Tutorial #16: Today I learned more about animation and how to loop it. I also practiced more with using Boolean modifiers.
+
+May 22, 2024

@@ -1,0 +1,3 @@
+Blender Tutorial #13: Today I learned about rigging a blender project for animation. This simple rigging technique allowed me to move the arm in a way that affected other parts of the arm. I then added some sounds that I thought would help the project.
+
+May 13, 2024

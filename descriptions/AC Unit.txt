@@ -1,0 +1,3 @@
+Blender Tutorial #15: Today I learned how to use curves and generate pipe structures more easily in Blender. This technique uses a lot less vertices than using cylinders, so it is less intensive in bigger projects.
+
+May 18, 2024

@@ -1,0 +1,3 @@
+Blender Project #1: This is my first solo project. My friends suggested that I make an animated Nether Portal from Minecraft. I had to learn how to animate the UV for the portal part and correctly set the UVs, but overall it wasn't super hard and I didn't have to follow a tutorial to make this (which is progress!).
+
+May 11, 2024

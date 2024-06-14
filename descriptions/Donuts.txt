@@ -1,0 +1,3 @@
+Blender Tutorial #1: This is my first Blender project in which I learned how to make some Donuts. This tutorial contained a lot of core features and tools that a beginner should learn (basic modeling, geometry nodes, material work, etc.).
+
+April 17, 2024

@@ -1,0 +1,3 @@
+Blender Tutorial #3: I learned more about mapping objects to another object's shape and then learned some more about subsurface scattering.
+
+April 19, 2024

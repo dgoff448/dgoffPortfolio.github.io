@@ -1,0 +1,3 @@
+Blender Tutorial #7: I learned about how to gradually go from a basic shape to a more complex one using Boolean modifiers. I also learned more about UV mapping for the image on the TV screen.
+
+April 25, 2024
