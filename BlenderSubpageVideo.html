@@ -67,6 +67,29 @@
 				const videoPath = `images/Blender Pics/${queryParams.BlendVideo}.mp4`;
 				const videoElement = document.getElementById("BlendVideo");
 				const sourceElement = videoElement.querySelector("source");
+
+				sourceElement.src = videoPath;
+				videoElement.load(); // Load the new video source
+
+				if (queryParams.Scale) {
+					const scale = parseFloat(queryParams.Scale);
+				
+
+					// Add event listener for loadedmetadata event
+					videoElement.addEventListener('loadedmetadata', () => {
+						const width = videoElement.videoWidth;
+						const height = videoElement.videoHeight;
+
+						console.log("Width: " + videoElement.videoWidth);
+						console.log("Height: " + videoElement.videoHeight);
+
+						videoElement.width = width * scale;
+						videoElement.height = height * scale;
+
+						console.log("New Width: " + width * scale);
+						console.log("New Height: " + height * scale);
+					});
+				}
 				
 				sourceElement.src = videoPath;
 				videoElement.load(); // Load the new video source
@@ -82,6 +105,8 @@
                 .catch(error => {
                     console.error('Error fetching the text file:', error);
                 });
+
+			
 
 			}
 		</script>
