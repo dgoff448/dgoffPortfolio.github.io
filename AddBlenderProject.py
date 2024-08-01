@@ -8,7 +8,7 @@ import os
 class ProjectApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Project App")
+        self.root.title("Blender Project Adder")
         self.root.configure(bg='#2e2e2e')  # Dark background color
 
         # Set default window size
@@ -57,10 +57,6 @@ class ProjectApp:
         tk.Radiobutton(radio_frame, text="Video", variable=self.file_type, value="Video",
                        bg='#2e2e2e', fg='white', selectcolor='#3e3e3e', indicatoron=0,
                        relief='flat').pack(side='left', padx=5)
-
-        # Radio button indicator label
-        self.radio_label = tk.Label(self.scrollable_frame, text="Selected: Photo", bg='#2e2e2e', fg='white')
-        self.radio_label.grid(row=0, column=2, sticky='w')
 
         # Text boxes for Title and Comment
         tk.Label(self.scrollable_frame, text="Project Title:", bg='#2e2e2e', fg='white').grid(row=1, column=0, sticky='w')
@@ -189,7 +185,7 @@ class ProjectApp:
             return
         
         # HTML Editing
-        
+
     # *******************************************************************
 
         # Add your logic here to handle the data
