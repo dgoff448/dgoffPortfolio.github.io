@@ -179,6 +179,7 @@ class ProjectApp:
             messagebox.showerror("Error",  "File already exists.")
             return
         
+        # Description Logic
         if title + '.txt' not in os.listdir('./descriptions/'):
             with open('./descriptions/' + title + '.txt', 'w') as f:
                 f.write(comment)
@@ -187,7 +188,8 @@ class ProjectApp:
             messagebox.showerror("Error", "Description File already exists.")
             return
         
-
+        # HTML Editing
+        
     # *******************************************************************
 
         # Add your logic here to handle the data
