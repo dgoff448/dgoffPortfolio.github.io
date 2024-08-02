@@ -140,7 +140,7 @@ class ProjectApp:
     def display_image(self, file_path, label):
         img = Image.open(file_path)
         width, height = img.size
-        img = img.resize((int(width * 0.35), int(height * 0.35)), Image.ANTIALIAS)
+        img = img.resize((int(width * 0.35), int(height * 0.35)))#, Image.ANTIALIAS)
         img = ImageTk.PhotoImage(img)
         label.config(image=img)
         label.image = img
@@ -185,6 +185,25 @@ class ProjectApp:
             return
         
         # HTML Editing
+            # <!-- @$# Next --> means next row of three
+            # <!-- @$# 1 --> means on first col
+            # <!-- @$# 2 --> means on second col
+            # <!-- @$# 3 --> means on third col
+        with open('./index.html', 'a') as f:
+            for line in f.readlines():
+                if '<!-- @$#' in line:  # Found flag
+                    if 'Next' in line:  # Need to generate new row of three cols
+                        break
+                    elif '1' in line:   # Filling in col 1
+                        break
+                    elif '2' in line:   # Filling in col 2
+                        break
+                    elif '3' in line:   # Filling in col 3
+                        break
+                    else:
+                        messagebox.showerror('Error', 'Flag found, but indicator not found.')
+                
+
 
     # *******************************************************************
 
