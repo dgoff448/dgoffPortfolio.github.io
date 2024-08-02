@@ -5,6 +5,7 @@ from PIL import Image, ImageTk
 import shutil
 import os
 
+
 class ProjectApp:
     def __init__(self, root):
         self.root = root
@@ -46,17 +47,17 @@ class ProjectApp:
 
     def create_widgets(self):
         # Radio buttons for Photo or Video
-        self.file_type = tk.StringVar(value="Photo")
+        # self.file_type = tk.StringVar(value="Photo")
 
-        radio_frame = tk.Frame(self.scrollable_frame, bg='#2e2e2e')
-        radio_frame.grid(row=0, column=0, columnspan=3, sticky='w')
+        # radio_frame = tk.Frame(self.scrollable_frame, bg='#2e2e2e')
+        # radio_frame.grid(row=0, column=0, columnspan=3, sticky='w')
 
-        tk.Radiobutton(radio_frame, text="Photo", variable=self.file_type, value="Photo",
-                       bg='#2e2e2e', fg='white', selectcolor='#3e3e3e', indicatoron=0,
-                       relief='flat').pack(side='left', padx=5)
-        tk.Radiobutton(radio_frame, text="Video", variable=self.file_type, value="Video",
-                       bg='#2e2e2e', fg='white', selectcolor='#3e3e3e', indicatoron=0,
-                       relief='flat').pack(side='left', padx=5)
+        # tk.Radiobutton(radio_frame, text="Photo", variable=self.file_type, value="Photo",
+        #                bg='#2e2e2e', fg='white', selectcolor='#3e3e3e', indicatoron=0,
+        #                relief='flat').pack(side='left', padx=5)
+        # tk.Radiobutton(radio_frame, text="Video", variable=self.file_type, value="Video",
+        #                bg='#2e2e2e', fg='white', selectcolor='#3e3e3e', indicatoron=0,
+        #                relief='flat').pack(side='left', padx=5)
 
         # Text boxes for Title and Comment
         tk.Label(self.scrollable_frame, text="Project Title:", bg='#2e2e2e', fg='white').grid(row=1, column=0, sticky='w')
@@ -146,7 +147,7 @@ class ProjectApp:
         label.image = img
 
     def submit(self):
-        project_type = self.file_type.get()
+        # project_type = self.file_type.get()
         title = self.title_entry.get()
         comment = self.comment_entry.get("1.0", tk.END).strip()
         thumbnail = self.thumbnail_entry.get()
@@ -157,7 +158,7 @@ class ProjectApp:
             return
 
         # For now, we'll just print the collected information to the console
-        print(f"Project Type: {project_type}")
+        # print(f"Project Type: {project_type}")
         print(f"Title: {title}")
         print(f"Comment: {comment}")
         print(f"Thumbnail: {thumbnail}")
@@ -165,12 +166,12 @@ class ProjectApp:
 
     # Non-ChatGPT code **************************************************
         # Image/Video Copying Logic
-        if thumbnail.split('/')[-1] not in os.listdir('./images/Blender Pics/') and content.split('/')[-1] not in os.listdir('./images/Blender Pics/'):
+        if thumbnail.split('/')[-1] not in os.listdir('./images/Blender Pics/') and content.split('/')[-1] not in os.listdir('./images/Blender Pics/') and thumbnail.split(".")[-1] in ['png', 'jpg'] and content.split(".")[-1] in ['png', 'jpg', 'mp4']:
             if thumbnail == content:
-                shutil.copy(thumbnail, './images/Blender Pics/')
+                shutil.copy(thumbnail, f'./images/Blender Pics/{title}.{content.split(".")[-1]}')
             else:
                 shutil.copy(thumbnail, './images/Blender Pics/')
-                shutil.copy(content, './images/Blender Pics/')
+                shutil.copy(content, f'./images/Blender Pics/{title}.{content.split(".")[-1]}')
         else:
             messagebox.showerror("Error",  "File already exists.")
             return
@@ -185,23 +186,64 @@ class ProjectApp:
             return
         
         # HTML Editing
-            # <!-- @$# Next --> means next row of three
-            # <!-- @$# 1 --> means on first col
+            # <!-- @$# Next --> means next row of three and fill in col 1
             # <!-- @$# 2 --> means on second col
             # <!-- @$# 3 --> means on third col
-        with open('./index.html', 'a') as f:
-            for line in f.readlines():
-                if '<!-- @$#' in line:  # Found flag
-                    if 'Next' in line:  # Need to generate new row of three cols
-                        break
-                    elif '1' in line:   # Filling in col 1
-                        break
-                    elif '2' in line:   # Filling in col 2
-                        break
-                    elif '3' in line:   # Filling in col 3
-                        break
-                    else:
-                        messagebox.showerror('Error', 'Flag found, but indicator not found.')
+        
+        with open('./index.html', 'r') as f:
+            fileLines = f.readlines()
+            f.close()
+
+        # Formatting span element text
+        if content.split(".")[-1] not in ['mp4']:
+            if thumbnail == content:
+                spanText = f'<span class="BlenderImage fit"><a href="BlenderSubpage.html?BlendImage={title}"><img src="images/Blender Pics/{title}.png" alt="" /></a>'
+            else:
+                spanText = f'<span class="BlenderImage fit"><a href="BlenderSubpage.html?BlendImage={title}"><img src="images/Blender Pics/{thumbnail.split("/")[-1]}" alt="" /></a>'
+        else:
+            spanText = f'<span class="BlenderImage fit"><a href="BlenderSubpageVideo.html?BlendVideo={title}"><img src="images/Blender Pics/{thumbnail.split("/")[-1]}" alt="" /></a>'
+
+        for i, line in enumerate(fileLines):
+            if '<!-- @$#' in line:
+                if '@$# Next' in line:  # Need to generate new row of three cols
+                    next_list = [
+                        '\t\t\t\t<div class="row gtr-150">\n',
+                        '\t\t\t\t\t<div class="col-4 col-12-medium">\n',
+                        f'\t\t\t\t\t\t{spanText}\n',
+                        f'\t\t\t\t\t\t<h3>{title}</h3>\n',
+                        '\t\t\t\t\t\t</span>\n',
+                        '\t\t\t\t\t</div>\n',
+                        '\t\t\t\t\t<div class="col-4 col-12-medium">\n',
+                        '\t\t\t\t\t\t<!-- @$# 2 -->\n',
+                        '\t\t\t\t\t</div>\n',
+                        '\t\t\t\t\t<div class="col-4 col-12-medium">\n',
+                        '\t\t\t\t\t\t<!-- @$# 3 -->\n',
+                        '\t\t\t\t\t</div>\n',
+                        '\t\t\t\t</div>\n',
+                    ]
+                    for j in range(0, len(next_list)):
+                        fileLines.insert(i+j, next_list[j])
+                    break
+                elif '@$# 2' in line or '@$# 3' in line:   # Filling in col 2 or col 3
+                    listy = [
+                        f'\t\t\t\t\t\t{spanText}\n',
+                        f'\t\t\t\t\t\t<h3>{title}</h3>\n',
+                        '\t\t\t\t\t\t</span>\n',
+                    ]
+                    fileLines.pop(i)
+                    for j in range(0, len(listy)):
+                        fileLines.insert(i+j, listy[j])
+                    break
+                else:
+                    messagebox.showerror('Error', 'Flag found, but indicator not found.')
+                    return
+                
+        # TODO: Scaling?
+
+        # Write changes
+        with open('./index.html', 'w') as f:
+            for line in fileLines:
+                f.write(line)
                 
 
 
