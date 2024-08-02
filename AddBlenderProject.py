@@ -166,15 +166,25 @@ class ProjectApp:
 
     # Non-ChatGPT code **************************************************
         # Image/Video Copying Logic
-        if thumbnail.split('/')[-1] not in os.listdir('./images/Blender Pics/') and content.split('/')[-1] not in os.listdir('./images/Blender Pics/') and thumbnail.split(".")[-1] in ['png', 'jpg'] and content.split(".")[-1] in ['png', 'jpg', 'mp4']:
+        # File Error Checks
+        if thumbnail.split(".")[-1] not in ['png', 'jpg']:
+            messagebox.showerror("Error",  "Thumbnail file is not a png.")
+            return
+        elif content.split(".")[-1] not in ['png', 'jpg', 'mp4']:
+            messagebox.showerror("Error",  "Content file is not a png or mp4.")
+            return
+        elif thumbnail.split('/')[-1] in os.listdir('./images/Blender Pics/'):
+            messagebox.showerror("Error",  "Thumbnail filename already exists.")
+            return
+        elif content.split('/')[-1] in os.listdir('./images/Blender Pics/'):
+            messagebox.showerror("Error",  "Content filename already exists.")
+            return
+        else:
             if thumbnail == content:
                 shutil.copy(thumbnail, f'./images/Blender Pics/{title}.{content.split(".")[-1]}')
             else:
                 shutil.copy(thumbnail, './images/Blender Pics/')
                 shutil.copy(content, f'./images/Blender Pics/{title}.{content.split(".")[-1]}')
-        else:
-            messagebox.showerror("Error",  "File already exists.")
-            return
         
         # Description Logic
         if title + '.txt' not in os.listdir('./descriptions/'):
