@@ -181,7 +181,7 @@ class ProjectApp:
             return
         else:
             if thumbnail == content:
-                shutil.copy(thumbnail, f'./images/Blender Pics/{title}.{content.split(".")[-1]}')
+                shutil.copy(thumbnail, f'./images/Blender Pics/{title} Thumbnail.{content.split(".")[-1]}')
             else:
                 shutil.copy(thumbnail, './images/Blender Pics/')
                 shutil.copy(content, f'./images/Blender Pics/{title}.{content.split(".")[-1]}')
@@ -207,7 +207,7 @@ class ProjectApp:
         # Formatting span element text
         if content.split(".")[-1] not in ['mp4']:
             if thumbnail == content:
-                spanText = f'<span class="BlenderImage fit"><a href="BlenderSubpage.html?BlendImage={title}"><img src="images/Blender Pics/{title}.png" alt="" /></a>'
+                spanText = f'<span class="BlenderImage fit"><a href="BlenderSubpage.html?BlendImage={title}"><img src="images/Blender Pics/{title} Thumbnail.png" alt="" /></a>'
             else:
                 spanText = f'<span class="BlenderImage fit"><a href="BlenderSubpage.html?BlendImage={title}"><img src="images/Blender Pics/{thumbnail.split("/")[-1]}" alt="" /></a>'
         else:
