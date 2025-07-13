@@ -146,6 +146,17 @@ class ProjectApp:
         label.config(image=img)
         label.image = img
 
+    def updateRecents(self, title, file_format):
+        with open('./BlendProjects.txt', 'r') as f:
+            lines = f.readlines()
+            f.close()
+        
+        lines.insert(0, f"{title}, {file_format}\n")
+
+        with open('./BlendProjects.txt', 'w') as f:
+            for line in lines:
+                f.write(line)    
+    
     def submit(self):
         # project_type = self.file_type.get()
         title = self.title_entry.get()
@@ -195,12 +206,18 @@ class ProjectApp:
             messagebox.showerror("Error", "Description File already exists.")
             return
         
+        # Adding to BlendProjects.txt
+        if content.split(".")[-1] not in ['mp4']:
+            self.updateRecents(title, "Pic")
+        else:
+            self.updateRecents(title, "Vid")
+        
         # HTML Editing
             # <!-- @$# Next --> means next row of three and fill in col 1
             # <!-- @$# 2 --> means on second col
             # <!-- @$# 3 --> means on third col
         
-        with open('./index.html', 'r') as f:
+        with open('./BlenderPage.html', 'r') as f:
             fileLines = f.readlines()
             f.close()
 
@@ -251,7 +268,7 @@ class ProjectApp:
         # TODO: Scaling?
 
         # Write changes
-        with open('./index.html', 'w') as f:
+        with open('./BlenderPage.html', 'w') as f:
             for line in fileLines:
                 f.write(line)
                 
